@@ -1,32 +1,19 @@
 package cl.camila;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
 import org.junit.Test;
-import org.mockito.Mock;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+import static org.junit.Assert.*;
+import cl.camila.service.RecipeService;
 public class RecipeServiceTest {
 
-    @Mock
-    private HttpResponse httpResponse;
-
     @Test
-    public void testHttpResponse() {
-        // Create a mock StatusLine object
-        StatusLine statusLineMock = mock(StatusLine.class);
+    public void testMethodResultNotNull() {
+        // Create an instance of the class containing the method
+        RecipeService recipeService = new RecipeService();
 
-        // Define the behavior of the mock StatusLine object
-        when(statusLineMock.getStatusCode()).thenReturn(200);
+        // Call the method and retrieve the result
+        String result = recipeService.getRecipesByIngredients("banana");
 
-        // Define the behavior of the mock HttpResponse object
-        when(httpResponse.getStatusLine()).thenReturn(statusLineMock);
-
-        // Perform assertions
-        assertEquals(200, httpResponse.getStatusLine().getStatusCode());
+        // Perform assertion to check if the result is not null
+        assertNotNull(result);
     }
-
 }
