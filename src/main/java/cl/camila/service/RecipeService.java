@@ -1,4 +1,4 @@
-package cl.camila;
+package cl.camila.service;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
